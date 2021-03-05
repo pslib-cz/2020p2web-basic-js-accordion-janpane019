@@ -236,9 +236,11 @@
                         var detailContainer = item.getElementsByClassName("detail-vypujcky-container")[0];
                         if (detailContainer.classList.contains("hidden")) {
                             detailContainer.classList.remove("hidden");
+                            detailContainer.style = "height: " + detailContainer.scrollHeight + "px;";
                         }
                         else {
                             detailContainer.classList.add("hidden");
+                            detailContainer.style = "height: 0;";
                         }
                     }
                 }
