@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="cs">
 
@@ -87,7 +87,7 @@
                             </label>
                         </div>
                     </div>
-                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container">
+                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container hidden">
                         <div class="vypujcka-container-icon-mobile">
                             <a class="icon-active-mobile icon-active-mobile-pen" href="#"><span
                                     class="icon-edit-pen"></span></a>
@@ -135,7 +135,7 @@
                             </label>
                         </div>
                     </div>
-                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container">
+                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container hidden">
                         <div class="detail-vypujcky-item">
                             <div class="kosik-img-container">
                                 <img class="kosik-nahled-img" src="img/Panasonic_HC-X920_7ce7.jpg" alt="">
@@ -181,7 +181,7 @@
                         </div>
                     </div>
 
-                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container">
+                    <div id="detailVypujcky" class="detail-vypujcky-container-layout detail-vypujcky-container hidden">
                         <div class="detail-vypujcky-item">
                             <div class="kosik-img-container">
                                 <img class="kosik-nahled-img" src="img/Panasonic_HC-X920_7ce7.jpg" alt="">
@@ -225,6 +225,27 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        var items = document.getElementsByClassName("vypujcka-item");
+        for (let item of items) {
+            var inputs = item.getElementsByTagName("input");
+            for (let input of inputs) {
+                if (input.type == "checkbox") {
+                    input.onclick = (e) => {
+                        var detailContainer = item.getElementsByClassName("detail-vypujcky-container")[0];
+                        if (detailContainer.classList.contains("hidden")) {
+                            detailContainer.classList.remove("hidden");
+                        }
+                        else {
+                            detailContainer.classList.add("hidden");
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
